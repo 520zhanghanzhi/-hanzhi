@@ -29,16 +29,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.couchbase.lite.CouchbaseLiteException;
-import com.couchbase.lite.DataSource;
-import com.couchbase.lite.Database;
-import com.couchbase.lite.DatabaseConfiguration;
-import com.couchbase.lite.Expression;
-import com.couchbase.lite.MutableDocument;
-import com.couchbase.lite.Query;
-import com.couchbase.lite.QueryBuilder;
-import com.couchbase.lite.ResultSet;
-import com.couchbase.lite.SelectResult;
 
 import org.ocpsoft.prettytime.PrettyTime;
 
