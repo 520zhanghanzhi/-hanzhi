@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import android.hardware.camera2.CameraDevice;
+
 
 import android.net.wifi.WifiManager;
 import android.net.wifi.p2p.WifiP2pInfo;
