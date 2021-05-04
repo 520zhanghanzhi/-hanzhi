@@ -122,7 +122,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         HomeUsername = navigationView.getHeaderView(0).findViewById(R.id.NavHeaderUsername);
         HomeUsername.setText(intent.getStringExtra("Username"));
 
-        populateOldChat();
+
 
         startRegistration();
 
@@ -199,60 +199,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
-    public void populateOldChat(){
-        final ArrayList<Friend_card> friendList = new ArrayList<>();
-        //open exist chat
-        try {
-            // Get the database (and create it if it doesn’t exist).
-            DatabaseConfiguration config = new DatabaseConfiguration(getApplicationContext());
-            Database friendDatabase = new Database("friendList", config);
-
-            //list all friend
-            Query query = QueryBuilder.select(SelectResult.property("friendUUINFO"), SelectResult.property("friendUsername"))
-                    .from(DataSource.database(friendDatabase));
-            ResultSet rs = query.execute();
-            int size = rs.allResults().size();
-            Toast toast = Toast.makeText(HomeActivity.this, "friendList size:" + size, Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
-            toast.show();
-
-            for(int i = 0; i < size; i++) {
-                rs = query.execute();
-                friendUUINFO = rs.allResults().get(i).getString("friendUUINFO");
-                rs = query.execute();
-                friendUsername = rs.allResults().get(i).getString("friendUsername");
-                rs = query.execute();
-
-                try {
-                    Database chatRoomDatabase;
-                    chatRoomDatabase = new Database(friendUUINFO, config);
-                    Query q2 = QueryBuilder.select(SelectResult.property("index"), SelectResult.property("time"))
-                            .from(DataSource.database(chatRoomDatabase));
-
-                    ResultSet rsChat = q2.execute();
-                    int rsChatSize = rsChat.allResults().size();
-
-                    //time is not using
-                    friendList.add(new Friend_card(friendUsername, friendUUINFO, "3:17 pm"));
-
-                } catch (CouchbaseLiteException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            mRecyclerView = findViewById(R.id.recyclerView);
-            mRecyclerView.setHasFixedSize(true);
-            mLayoutManager = new LinearLayoutManager(this);
-            mAdapter = new FriendListAdapter(friendList);
-
-            mRecyclerView.setLayoutManager(mLayoutManager);
-            mRecyclerView.setAdapter(mAdapter);
-
-
-        } catch (CouchbaseLiteException e) {
-            e.printStackTrace();
-        }
-    }
+    
 
     @Override
     protected void onResume() {
