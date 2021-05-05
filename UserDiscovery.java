@@ -189,11 +189,7 @@ public class UserDiscovery<WiFiDirectServicesList, WiFiDevicesAdapter> extends A
         });
     }
 
-    // onConnectionInfoAvailable to start ChatterActivities if a connection is received instead of creating如果接收到连接而不是创建连接，则onConnectionInfoAvailable可以启动ChatterActivities
-    @Override
-    public void onConnectionInfoAvailable(WifiP2pInfo p2pInfo) {
 
-    }
 
     // Add back button
     @Override
