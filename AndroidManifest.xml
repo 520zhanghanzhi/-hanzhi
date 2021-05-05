@@ -16,28 +16,20 @@
 
     <application
         android:allowBackup="true"
-
-
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginPageActivity" />
         <activity android:name=".SignupPageActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UserDiscovery" />
-        <activity
-            android:name=".InitiateActivity"
-            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginPageActivity" />
         <activity android:name=".SignupPageActivity" />
         <activity
             android:name=".HomeActivity"
