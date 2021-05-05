@@ -128,36 +128,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
 
-        //list menu in navigation drawer
-        if (id == R.id.nav_logout) {
-            try {
-                // Get the database (and create it if it doesn’t exist).
-                DatabaseConfiguration config = new DatabaseConfiguration(getApplicationContext());
-                Database userDatabase = new Database("userList", config);
-                Intent intent = getIntent();
-                String userDocId = intent.getStringExtra("UserDocId");
-                MutableDocument userDoc = userDatabase.getDocument(userDocId).toMutable();
-                //set this user is logged out to check when on initiateActivity
-                userDoc.setString("hasLogin", "false");
-                userDatabase.save(userDoc);
-            } catch (CouchbaseLiteException e) {
-                e.printStackTrace();
-            }
-            Intent intent = new Intent(HomeActivity.this, LoginPageActivity.class);
-            startActivity(intent);
-            finish();
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
     /**
      * Registers a local service and then initiates a service discovery
