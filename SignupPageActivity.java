@@ -110,13 +110,13 @@ public class SignupPageActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //link to login page if user has an account
+        //link to home page if user has an account
         signupHaveAccount = findViewById(R.id.signupHaveAccount);
         SpannableString ss = new SpannableString(" ");
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                Intent intent = new Intent(SignupPageActivity.this, LoginPageActivity.class);
+                Intent intent = new Intent(SignupPageActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
             }
