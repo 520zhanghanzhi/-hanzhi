@@ -128,7 +128,23 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
 
+        //list menu in navigation drawer
+        if (id == R.id.nav_logout) {
+            Intent intent = new Intent(HomeActivity.this, LoginPageActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
     /**
      * Registers a local service and then initiates a service discovery
